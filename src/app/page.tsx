@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Home, Shield, Users, Star, Building2, CalendarCheck } from "lucide-react";
 import { AnimateIn } from "@/components/AnimateIn";
 import { properties, vacancies } from "@/lib/properties";
@@ -137,7 +138,8 @@ export default function HomePage() {
               {vacancies.map((vacancy, i) => (
                 <AnimateIn key={vacancy.id} delay={i * 0.1}>
                   <div className="group rounded-2xl border border-[#D6D3D1] bg-white overflow-hidden hover:shadow-xl hover:shadow-black/5 transition-all duration-300">
-                    <div className="h-48 bg-gradient-to-br from-[#292524] to-[#1C1917] relative overflow-hidden">
+                    <div className="h-48 relative overflow-hidden">
+                      <Image src={vacancy.image} alt={`${vacancy.propertyName} ${vacancy.unit}`} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                       <div className="absolute bottom-4 left-6">
                         <span className="inline-block rounded-full bg-[#B45309] px-3 py-1 text-xs font-semibold text-white">
@@ -228,7 +230,8 @@ export default function HomePage() {
                   href={`/properties/${prop.slug}`}
                   className="group block rounded-2xl overflow-hidden bg-[#292524] hover:bg-[#44403C] transition-colors duration-300"
                 >
-                  <div className="h-56 bg-gradient-to-br from-[#44403C] to-[#292524] relative">
+                  <div className="h-56 relative overflow-hidden">
+                    <Image src={prop.image} alt={prop.name} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#292524] to-transparent opacity-60" />
                     <div className="absolute bottom-4 left-4">
                       <span className="text-xs font-medium text-[#A8A29E] uppercase tracking-wider">

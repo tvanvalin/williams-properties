@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { AnimateIn } from "@/components/AnimateIn";
 import { vacancies } from "@/lib/properties";
 import { MapPin, Mail } from "lucide-react";
@@ -61,7 +62,9 @@ export default function AvailableUnitsPage() {
                 <AnimateIn key={v.id} delay={i * 0.1}>
                   <div className="rounded-2xl border border-[#D6D3D1] bg-white overflow-hidden hover:shadow-lg transition-shadow">
                     <div className="flex flex-col lg:flex-row">
-                      <div className="lg:w-72 h-48 lg:h-auto bg-gradient-to-br from-[#44403C] to-[#292524] shrink-0" />
+                      <div className="lg:w-72 h-48 lg:h-auto relative shrink-0 overflow-hidden">
+                        <Image src={v.image} alt={`${v.propertyName} ${v.unit}`} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 288px" />
+                      </div>
                       <div className="flex-1 p-6 lg:p-8">
                         <div className="flex flex-col sm:flex-row justify-between items-start gap-4">
                           <div>

@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { MapPin, Calendar, ArrowLeft, Check, ArrowRight } from "lucide-react";
 import { AnimateIn } from "@/components/AnimateIn";
 import { properties, getPropertyBySlug, vacancies } from "@/lib/properties";
@@ -91,7 +92,9 @@ export default async function PropertyPage({
             {/* Main content */}
             <div className="lg:col-span-2">
               <AnimateIn>
-                <div className="aspect-[16/9] rounded-2xl bg-gradient-to-br from-[#44403C] to-[#292524] mb-8" />
+                <div className="aspect-[16/9] rounded-2xl overflow-hidden relative mb-8">
+                  <Image src={property.image} alt={property.name} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 66vw" priority />
+                </div>
               </AnimateIn>
 
               <AnimateIn delay={0.1}>
