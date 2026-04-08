@@ -8,6 +8,7 @@ const navLinks = [
   { href: "/available-units", label: "Available Units" },
   { href: "/properties", label: "Our Properties" },
   { href: "/about", label: "Our Story" },
+  { href: "/resources", label: "Resources" },
   { href: "/contact", label: "Contact" },
 ];
 
