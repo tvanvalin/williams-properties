@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Williams Properties Website
+
+Complete website rebuild for [Williams Properties](https://www.williamsproperties.com) — a family-owned apartment rental company in Tacoma, WA operating since 1902.
+
+## Tech Stack
+
+- **Framework:** Next.js (App Router) with Static Site Generation
+- **Styling:** Tailwind CSS
+- **Typography:** Playfair Display + DM Sans (Google Fonts)
+- **Animations:** Framer Motion
+- **Icons:** Lucide React
+- **Deployment:** Vercel (auto-deploy on push to main)
+- **Package Manager:** pnpm
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+  app/
+    page.tsx                    # Homepage
+    about/                      # Our Story page
+    available-units/            # Current vacancies
+    blog/                       # Blog (coming soon)
+    contact/                    # Contact page with form
+    properties/                 # Properties overview
+      [slug]/                   # Individual property pages (SSG)
+    resources/                  # Tools hub
+      rent-calculator/          # Rent affordability calculator
+      find-your-apartment/      # Apartment matching quiz
+      move-in-calculator/       # Move-in cost calculator
+    privacy/                    # Privacy policy
+    terms/                      # Terms of service
+    not-found.tsx               # Custom 404
+    sitemap.ts                  # Auto-generated sitemap
+    robots.ts                   # Robots.txt
+  components/
+    Header.tsx                  # Sticky header with mobile nav
+    Footer.tsx                  # Footer with schema markup
+    AnimateIn.tsx               # Scroll-triggered animation wrapper
+  lib/
+    properties.ts               # Property data and types
+```
 
-## Learn More
+## Adding Blog Posts
 
-To learn more about Next.js, take a look at the following resources:
+Create a new `.mdx` file in `/content/blog/` with this frontmatter:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```mdx
+---
+title: "Post Title Here"
+date: "2026-04-08"
+description: "A brief description for SEO and previews."
+author: "Author Name"
+tags: ["tag1", "tag2"]
+featuredImage: "/images/blog/post-slug.jpg"
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Post content here in MDX format.
+```
 
-## Deploy on Vercel
+Push to `main` and Vercel auto-deploys.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Documentation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `WEBSITE_AUDIT.md` - Full audit of the original site
+- `BRAND_BRIEF.md` - Brand extraction and design direction
+- `CONTENT_INVENTORY.md` - Content classification
+- `REBUILD_PLAN.md` - Architecture, design system, SEO plan
+- `TOOLS_RESEARCH.md` - Competitive research for interactive tools
