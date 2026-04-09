@@ -58,6 +58,11 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+  },
   metadataBase: new URL("https://www.williamsproperties.com"),
 };
 
